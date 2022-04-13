@@ -1,2 +1,3 @@
 dataset/CUB_200_2011
-layer1/*
+results/*
+ckpt/*

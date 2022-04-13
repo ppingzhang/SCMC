@@ -1,6 +1,6 @@
 1. tar –xvf  CUB_200_2011.tar
 
-2. put filenames_train.pickle and filenames_test.pickle in the CUB_200_2011 file
+2. put filenames_train.pickle, filenames_test.pickle and captions.pickle in the CUB_200_2011 file
 
 3. run python preprocess_bird.py
    Before running it, we need to change the "abspath" value, which is the absolute path of the dataset.
