@@ -11,7 +11,7 @@ def test(test):
     
     vocab_path = '../../dataset/CUB_200_2011/captions.pickle' # vocab model
     test_img_path = '../../dataset/CUB_200_2011/test_image_resize/'
-    save_dir = '../../results/birds/I2T/'
+    save_dir = '../../results/layer1/I2T/test/'
 
     img_list = glob.glob(f'{test_img_path}/*.jpg')
     random.shuffle(img_list)
