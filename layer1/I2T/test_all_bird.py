@@ -3,6 +3,7 @@ import glob
 from multiprocessing import Pool
 import random
 
+
 def test(test):
     
     encoder_path = '../../ckpt/I2T/encoder-10.ckpt' # encoder model

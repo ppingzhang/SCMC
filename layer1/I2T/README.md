@@ -20,10 +20,14 @@ python train_bird.py  --model_path=../../ckpt/I2T/ --image_list_dir=../../datase
 | `--vocab_path` | The path of captions.pickle |
 | `--image_dir` | The path of caption files |
 
-#### 2. Test the model 
+#### 2. Test a single image 
 
 ```bash
-python sample.py --image='png/example.png'
+python sample_bird.py --image='./example.png'
 ```
 
-
+#### 3. Test the whole dataset
+```bash
+python test_all_bird.py 
+```
+Note, you need to modify the paths in the test_all_bird.py .
