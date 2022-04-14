@@ -86,9 +86,33 @@ Then, we need to generate the RCF edges of the testing data for evalution.
 python test_bird.py --checkpoint=bsds500_pascal_model.pth --save-dir=../../results/layer2/RCF_test/ --dataset=../../dataset/CUB_200_2011/test_image_resize/
 ```
 
-Then, we use [VTM](https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM/-/tree/VTM-15.0) to compress the structure maps.
+Then, we use [VTM](https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM/-/tree/VTM-15.2) to compress the structure maps.
 
 ### 2. Compress the RCF structure maps
+After downloading VTM software, 
+
+```bash
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j
+```
+It mainly contains four steps to compress RCF structure maps
+```bash
+1. convert the RGB format into the YUV420 format.
+2. compress them via VTM with SCC.
+3. decompress the bin files.
+4. convert the YUV420 format to the RGB format.
+```
+
+The commands of encoding and decoding
+```bash
+EncoderAppStatic -c ./cfg/encoder_intra_vtm.cfg -c ./cfg/per-class/classSCC.cfg -c input.cfg -i input_path -b bin_path -q qp
+```
+```bash
+DecoderAppStatic -b bin_path -o output_path
+```
+
+where encoder_intra_vtm.cfg and classSCC.cfg can be found in the ./cfg file. input.cfg contains the information about input sequence, and you can reference ./cfg/per-sequence/BasketballDrill.cfg and modify SourceWidth, SourceHeight, and FramesToBeEncoded.
 
 ---
 
