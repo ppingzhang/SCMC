@@ -134,10 +134,11 @@ python3 train_l2_gan.py
 --train_caps_path=../dataset/CUB_200_2011/text/ 
 --train_style_path=../result/layer1_for_train/ # the outputs of layer2
 --train_pickle_path=../dataset/CUB_200_2011/filenames_train.pickle 
---train_edge_path=./CUB_200_2011/VTM_encode_result/train/de_img_down_RCF/50/ #decoded structure maps
+--train_edge_path=./dataset/CUB_200_2011/VTM_encode_result/train/de_img_down_RCF/50/ #decoded structure maps
 --label_str=basic 
 ```
 
+We provide the pretained model, and you can download it. [model]()
 ```bash
 
 python3 train_l2_gan.py 
@@ -146,7 +147,7 @@ python3 train_l2_gan.py
 --test_caps_path=../dataset/CUB_200_2011/text/  
 --test_style_path=../result/layer1_for_test/  
 --train_pickle_path=../dataset/CUB_200_2011/filenames_train.pickle  
---test_edge_path=./CUB_200_2011/VTM_encode_result/test/de_img_down_RCF/50/ # decoded structure maps of testing dataset
+--test_edge_path=./dataset/CUB_200_2011/VTM_encode_result/test/de_img_down_RCF/50/ # decoded structure maps of testing dataset
 --label_str=basic  
 --ckpt=../ckpt/layer2/model/layer2.pth.tar # ckpt model
 ```
@@ -154,3 +155,25 @@ python3 train_l2_gan.py
 ---
 
 ## 3. The signal layer:
+
+```bash
+python3 main_codec.py 
+--model=L3_Codec_Hyperprior
+--train_imgs_path=../dataset/CUB_200_2011/train_image_resize/ 
+--train_base_img_path=../result/layer1_for_train/ # the outputs of layer2
+--train_pickle_path=../dataset/CUB_200_2011/filenames_train.pickle 
+--train_edge_path=./dataset/CUB_200_2011/VTM_encode_result/train/de_img_down_RCF/50/ #decoded structure maps
+```
+
+We provide the pretained model, and you can download it. [model]()
+```bash
+
+python3 main_codec.py
+--mode=test 
+--model=L3_Codec_Hyperprior
+--test_imgs_path=../dataset/CUB_200_2011/test_image_resize/  
+--test_base_img_path=../result/layer1_for_test/  
+--train_pickle_path=../dataset/CUB_200_2011/filenames_train.pickle  
+--test_edge_path=../dataset/CUB_200_2011/VTM_encode_result/test/de_img_down_RCF/50/ # decoded structure maps of testing dataset
+--ckpt=../ckpt/L3_Codec_Hyperprior/basic/1/best.pth.tar # ckpt model
+```
