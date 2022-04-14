@@ -18,8 +18,8 @@ Note:  README.md in ./dataset provides more details.
 
 ---
 
-## The semantic layer:
-### Image2Text: [Image Caption](https://github.com/yunjey/pytorch-tutorial/tree/master/tutorials/03-advanced/image_captioning)
+## 1. The semantic layer:
+### 1.1 Image2Text: [Image Caption](https://github.com/yunjey/pytorch-tutorial/tree/master/tutorials/03-advanced/image_captioning)
 > This code only offers the methods of training on the COCO dataset.
 > We need to write the data processing code to process the CUB dataset.
 
@@ -27,7 +27,7 @@ Note:  README.md in ./dataset provides more details.
 cd layer1
 ```
 
-#### 1. Train the model
+#### 1.1.1. Train the model
 
 ```bash
 CUDA_LAUNCH_BLOCKING=1 
@@ -42,20 +42,20 @@ python train_bird.py  --model_path=../../ckpt/I2T/ --image_list_dir=../../datase
 | `--vocab_path` | The path of captions.pickle |
 | `--image_dir` | The path of caption files |
 
-#### 2. Test a single image 
+#### 1.1.2. Test a single image 
 
 ```bash
 python sample_bird.py --image='./example.png'
 ```
 
-#### 3. Test the whole dataset
+#### 1.1.3. Test the whole dataset
 ```bash
 python test_all_bird.py 
 ```
 Note, you need to modify the paths in the test_all_bird.py .
 
 
-### Text2Image: [AttnGAN](https://github.com/taoxugit/AttnGAN)
+### 1.2. Text2Image: [AttnGAN](https://github.com/taoxugit/AttnGAN)
 ```bash
 We reference the AttnGAN model to generate images, and you can realize it following the "README.md" file provided via AttnGAN.
 
@@ -64,12 +64,12 @@ Note: After training Attgan, you need to generate all images in the training dat
 
 ---
 
-## The structure layer:
+## 2. The structure layer:
 ```bash
 cd layer2
 ```
 
-### 1. Extract the RCF strcture maps
+### 2.1. Extract the RCF strcture maps
 
 Put bsds500_pascal_model.pth in the ./layer2/RCF
 ```bash
@@ -88,7 +88,7 @@ python test_bird.py --checkpoint=bsds500_pascal_model.pth --save-dir=../../resul
 
 Then, we use [VTM](https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM/-/tree/VTM-15.2) to compress the structure maps.
 
-### 2. Compress the RCF structure maps
+### 2.2 Compress the RCF structure maps
 After downloading VTM software, 
 
 ```bash
@@ -116,6 +116,41 @@ where encoder_intra_vtm.cfg and classSCC.cfg can be found in the ./cfg file. inp
 
 You need to compress and decompress RCF structure maps in the training and testing datasets.
 
+### 2.3 Training the structure layer.
+```bash
+python3 train_l2_gan.py 
+--train_imgs_path=../dataset/CUB_200_2011/train_image_resize/ 
+--train_caps_path=../dataset/CUB_200_2011/text/ 
+--train_style_path=../result/layer2/ # the outputs of layer2
+--train_pickle_path=../dataset/CUB_200_2011/filenames_train.pickle 
+--train_edge_path=./CUB_200_2011/VTM_encode_result/train/de_img_down_RCF/50/ #decoded structure maps
+--label_str=basic 
+```
+
+### 2.4 Testing the structure layer
+```bash
+python3 train_l2_gan.py 
+--train_imgs_path=../dataset/CUB_200_2011/train_image_resize/ 
+--train_caps_path=../dataset/CUB_200_2011/text/ 
+--train_style_path=../result/layer1_for_train/ # the outputs of layer2
+--train_pickle_path=../dataset/CUB_200_2011/filenames_train.pickle 
+--train_edge_path=./CUB_200_2011/VTM_encode_result/train/de_img_down_RCF/50/ #decoded structure maps
+--label_str=basic 
+```
+
+```bash
+
+python3 train_l2_gan.py 
+--mode=test 
+--test_imgs_path=../dataset/CUB_200_2011/test_image_resize/  
+--test_caps_path=../dataset/CUB_200_2011/text/  
+--test_style_path=../result/layer1_for_test/  
+--train_pickle_path=../dataset/CUB_200_2011/filenames_train.pickle  
+--test_edge_path=./CUB_200_2011/VTM_encode_result/test/de_img_down_RCF/50/ # decoded structure maps of testing dataset
+--label_str=basic  
+--ckpt=../ckpt/layer2/model/layer2.pth.tar # ckpt model
+```
+
 ---
 
-## The signal layer:
+## 3. The signal layer:
