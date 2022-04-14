@@ -69,7 +69,7 @@ Note: After training Attgan, you need to generate all images in the training dat
 cd layer2
 ```
 
-### 1. Extract the RCF edge
+### 1. Extract the RCF strcture maps
 
 Put bsds500_pascal_model.pth in the ./layer2/RCF
 ```bash
@@ -88,7 +88,7 @@ python test_bird.py --checkpoint=bsds500_pascal_model.pth --save-dir=../../resul
 
 Then, we use [VTM](https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM/-/tree/VTM-15.0) to compress the structure maps.
 
-###
+### 2. Compress the RCF structure maps
 
 ---
 
