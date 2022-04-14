@@ -1,1 +1,0 @@
-The code is released under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) for NonCommercial use only. Any commercial use should get formal permission first (Email: yun.liu@vision.ee.ethz.ch).

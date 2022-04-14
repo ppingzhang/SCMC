@@ -3,4 +3,9 @@
 dataset/CUB_200_2011
 results/*
 ckpt/*
-layer2/*
+layer2/model/*
+layer2/loss/*
+layer2/*.py
+layer2/data/*
+layer2/Common/*
+layer2/*.txt
