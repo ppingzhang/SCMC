@@ -114,6 +114,8 @@ DecoderAppStatic -b bin_path -o output_path
 
 where encoder_intra_vtm.cfg and classSCC.cfg can be found in the ./cfg file. input.cfg contains the information about input sequence, and you can reference ./cfg/per-sequence/BasketballDrill.cfg and modify SourceWidth, SourceHeight, and FramesToBeEncoded.
 
+You need to compress and decompress RCF structure maps in the training and testing datasets.
+
 ---
 
 ## The signal layer:
