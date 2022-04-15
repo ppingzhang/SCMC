@@ -3,9 +3,10 @@ This is the official code about the paper: Scalable Cross-Modality Image Compres
 It contains three layers: the semantic layer, the structure layer and the signal layer.
 Herein, the project provides the code to achieve these three layers.
 
+You can find the data in this [link](https://portland-my.sharepoint.com/:f:/g/personal/pinzhang6-c_my_cityu_edu_hk/Em81Y8mUbIpHl9v-h402j_YBY1yVpdwJpU73eqiqMk7j0Q?e=T7u2jZ)
 ---
 
-## Dataset: [Our dataset](https://portland-my.sharepoint.com/:u:/g/personal/pinzhang6-c_my_cityu_edu_hk/EfV7G84rYXhHtTXKkZsY_vQBzfeqrInjtlX0Q5N_3Um5Jw?e=z4fHbZ)
+## Dataset: [Our dataset](https://portland-my.sharepoint.com/:f:/g/personal/pinzhang6-c_my_cityu_edu_hk/Em81Y8mUbIpHl9v-h402j_YBY1yVpdwJpU73eqiqMk7j0Q?e=T7u2jZ)
 
 > preprocessing the dataset: 
 1. extract the captions of training and testing data.
@@ -165,7 +166,7 @@ python3 main_codec.py
 --train_edge_path=./dataset/CUB_200_2011/VTM_encode_result/train/de_img_down_RCF/50/ #decoded structure maps
 ```
 
-We provide the pretained model, and you can download it. [model]()
+We provide the pretained model, and you can download it. [model](https://portland-my.sharepoint.com/:f:/g/personal/pinzhang6-c_my_cityu_edu_hk/Em81Y8mUbIpHl9v-h402j_YBY1yVpdwJpU73eqiqMk7j0Q?e=T7u2jZ)
 ```bash
 
 python3 main_codec.py
