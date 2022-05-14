@@ -178,3 +178,5 @@ python3 main_codec.py
 --test_edge_path=../dataset/CUB_200_2011/VTM_encode_result/test/de_img_down_RCF/50/ # decoded structure maps of testing dataset
 --ckpt=../ckpt/L3_Codec_Hyperprior/basic/1/best.pth.tar # ckpt model
 ```
+
+

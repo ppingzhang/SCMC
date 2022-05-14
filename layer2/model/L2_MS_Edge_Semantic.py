@@ -215,7 +215,7 @@ class L2_MS_Edge_Semantic(nn.Module):
         
         out["re_loss"] = self.l1(output["x_hat"], target)*10
 
-        out['dists'] = self.dists(output["x_hat"], target, require_grad=True, batch_average=True) *10
+        out['dists'] = self.dists(0.5*(output["x_hat"]+1), 0.5*(target+1), require_grad=True, batch_average=True) *10
 
         out["loss"] =  out["re_loss"] + out['dists'] 
 
