@@ -1,5 +1,5 @@
-# SCMC
-This is the official code about the paper: Scalable Cross-Modality Image Compression.
+# Rethinking Semantic Image Compression: Scalable Representation with Cross-modality Transfer
+This is the official code about the paper: **Rethinking Semantic Image Compression: Scalable Representation with Cross-modality Transfer**.
 It contains three layers: the semantic layer, the structure layer and the signal layer.
 Herein, the project provides the code to achieve these three layers.
 
@@ -11,7 +11,7 @@ You can find the data in this [link](https://portland-my.sharepoint.com/:f:/g/pe
 > preprocessing the dataset: 
 1. extract the captions of training and testing data.
 2. split training and testing data.
-3. resize them into 256x256.
+3. resize them into 256x256. (You can resize and center crop images!)
    
 Note:  README.md in ./dataset provides more details.
 
@@ -102,7 +102,7 @@ It mainly contains four steps to compress RCF structure maps
 1. convert the RGB format into the YUV420 format.
 2. compress them via VTM with SCC.
 3. decompress the bin files.
-4. convert the YUV420 format to the RGB format.
+4. convert the YUV400 format to the RGB format.
 ```
 
 The commands of encoding and decoding
@@ -180,3 +180,14 @@ python3 main_codec.py
 ```
 
 
+## BibTeX
+```
+@ARTICLE{Learning2022Zhang,
+  author={Zhang, Pingping and Wang, Meng and Chen, Baoliang and Lin, Rongqun and Wang, Xu and Wang, Shiqi and Kwong, Sam},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology}, 
+  title={Rethinking Semantic Image Compression: Scalable Representation with Cross-modality Transfer}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-1}}
+```

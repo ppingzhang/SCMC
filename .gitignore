@@ -3,4 +3,7 @@
 dataset/CUB_200_2011
 results/*
 ckpt/*
+layer1/I2T-CATR-bird-flower
+layer1/I2T/data_loader_flower.py
+layer1/I2T/train_flower.py
 

@@ -32,7 +32,7 @@ def test(test):
 
 if __name__ == '__main__':
     print('Parent process %s.' % os.getpid())
-    p = Pool(10)   # 创建4个进程
+    p = Pool(10)  
     for i in range(11):
         p.apply_async(test, args=(i,))
     print('Waiting for all subprocesses done...')
