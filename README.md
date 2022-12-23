@@ -99,7 +99,7 @@ make -j
 ```
 It mainly contains four steps to compress RCF structure maps
 ```bash
-1. convert the RGB format into the YUV420 format.
+1. convert the RGB format into the YUV400 format.
 2. compress them via VTM with SCC.
 3. decompress the bin files.
 4. convert the YUV400 format to the RGB format.
