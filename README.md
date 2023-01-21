@@ -60,7 +60,7 @@ Note, you need to modify the paths in the test_all_bird.py .
 ```bash
 We reference the AttnGAN model to generate images, and you can realize it following the "README.md" file provided via AttnGAN.
 
-Note: After training Attgan, you need to generate all images in the training dataset, because the second layer is based on the results of the first layer.
+Note: After training AttGAN, you need to generate all images in the training dataset, because the second layer is based on the results of the first layer.
 ```
 
 ---
@@ -183,11 +183,11 @@ python3 main_codec.py
 ## BibTeX
 ```
 @ARTICLE{Learning2022Zhang,
-  author={Zhang, Pingping and Wang, Meng and Chen, Baoliang and Lin, Rongqun and Wang, Xu and Wang, Shiqi and Kwong, Sam},
+  author={Zhang, Pingping and Wang, Shiqi and Wang, Meng and Li, Jiguo and Wang, Xu and Kwong, Sam},
   journal={IEEE Transactions on Circuits and Systems for Video Technology}, 
   title={Rethinking Semantic Image Compression: Scalable Representation with Cross-modality Transfer}, 
   year={2023},
   volume={},
   number={},
-  pages={1-1}}
+  pages={}}
 ```
