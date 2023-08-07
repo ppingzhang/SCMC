@@ -70,7 +70,7 @@ Note: After training AttGAN, you need to generate all images in the training dat
 cd layer2
 ```
 
-### 2.1. Extract the RCF strcture maps
+### 2.1. Extract the RCF structure maps
 
 Put bsds500_pascal_model.pth in the ./layer2/RCF
 ```bash
@@ -82,11 +82,11 @@ First, we need to generate the RCF edges of the training data for the layer2 tra
 python test_bird.py --checkpoint=bsds500_pascal_model.pth --save-dir=../../results/layer2/RCF_train/ --dataset=../../dataset/CUB_200_2011/train_image_resize/
 ```
 
-Then, we need to generate the RCF edges of the testing data for evalution.
+Then, we need to generate the RCF edges of the testing data for evaluation.
 ```bash
 python test_bird.py --checkpoint=bsds500_pascal_model.pth --save-dir=../../results/layer2/RCF_test/ --dataset=../../dataset/CUB_200_2011/test_image_resize/
 ```
-
+**Please note that we need to perform the operation to reverse RCF edges (255-RCF edges). The correct edge map for our model can be found in Figure 1 of the paper.**
 Then, we use [VTM](https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM/-/tree/VTM-15.2) to compress the structure maps.
 
 ### 2.2 Compress the RCF structure maps
@@ -113,7 +113,7 @@ EncoderAppStatic -c ./cfg/encoder_intra_vtm.cfg -c ./cfg/per-class/classSCC.cfg 
 DecoderAppStatic -b bin_path -o output_path
 ```
 
-where encoder_intra_vtm.cfg and classSCC.cfg can be found in the ./cfg file. input.cfg contains the information about input sequence, and you can reference ./cfg/per-sequence/BasketballDrill.cfg and modify SourceWidth, SourceHeight, and FramesToBeEncoded.
+where encoder_intra_vtm.cfg and classSCC.cfg can be found in the ./cfg file. input.cfg contains the information about the input sequence, and you can reference ./cfg/per-sequence/BasketballDrill.cfg and modify SourceWidth, SourceHeight, and FramesToBeEncoded.
 
 You need to compress and decompress RCF structure maps in the training and testing datasets.
 
